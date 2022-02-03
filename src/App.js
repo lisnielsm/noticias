@@ -1,12 +1,13 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Header from './components/Header';
 import Formulario from './components/Formulario';
+import ListadoNoticias from './components/ListadoNoticias';
 
 function App() {
-	
+
 	// definir la categoria y noticias
-	const [categoria, guardarCategoria] = useState('');
-	const [noticias, guardarNoticias] = useState([]);
+	const [ categoria, guardarCategoria ] = useState('');
+	const [ noticias, guardarNoticias ] = useState([]);
 
 	useEffect(() => {
 
@@ -21,7 +22,7 @@ function App() {
 		};
 		consultarAPI();
 	}, [categoria]);
-	
+
 	return (
 		<Fragment>
 			<Header
@@ -29,8 +30,12 @@ function App() {
 			/>
 
 			<div className="container white">
-				<Formulario
+				<Formulario 
 					guardarCategoria={guardarCategoria}
+				/>
+
+				<ListadoNoticias 
+					noticias={noticias}
 				/>
 			</div>
 		</Fragment>

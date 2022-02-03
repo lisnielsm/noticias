@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
 const useSelect = (stateInicial, opciones) => {
-
-    const [state, guardarState] = useState(stateInicial);
-
+    
+    const [ state, guardarState ] = useState(stateInicial);
+    
     const SelectNoticias = () => (
         <select
             className="browser-default"
             value={state}
-            onChange={e => guardarState(e.target.value)}
+            onChange={ e => guardarState(e.target.value)}
         >
             {opciones.map(opcion => (
-                <option
+                <option 
                     key={opcion.value}
                     value={opcion.value}
                 >{opcion.label}</option>
@@ -19,7 +19,7 @@ const useSelect = (stateInicial, opciones) => {
         </select>
     )
 
-    return [state, SelectNoticias];
+    return [ state, SelectNoticias ];
 }
-
+ 
 export default useSelect;
